@@ -116,17 +116,14 @@
       </div>
 
       <div class="pt-3 flex items-center justify-center gap-5 text-slate-800 dark:text-slate-200">
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="Instagram Serumpunologi">
+        <a href="https://instagram.com/serumpun.ig" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="Instagram Serumpunologi">
           <i class="fa-brands fa-instagram text-lg"></i>
         </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="Facebook Serumpunologi">
+        <a href="https://facebook.com/ruangserumpun" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="Facebook Serumpunologi">
           <i class="fa-brands fa-facebook-f text-lg"></i>
         </a>
-        <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="TikTok Serumpunologi">
-          <i class="fa-brands fa-tiktok text-lg"></i>
-        </a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="YouTube Serumpunologi">
-          <i class="fa-brands fa-youtube text-lg"></i>
+        <a href="https://www.threads.com/@serumpun.ig" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-slate-800 hover:text-sky-600 transition-all" aria-label="TikTok Serumpunologi">
+          <i class="fa-brands fa-threads text-lg"></i>
         </a>
       </div>
     </div>

@@ -2,17 +2,72 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Palet Warna Kustom Serumpun */
+  --color-serumpun-charcoal: #1b212a;
+  --color-serumpun-blue: #0284c7;
+  --color-serumpun-accent: #d97706;
+
+  --color-hijau-1: #17743f;
+  --color-hijau-2: #3ba167;
+  --color-hijau-3: #34cd73;
+  --color-hijau-4: #4bff93;
+  --color-hijau-5: #a8ffcb;
+
+  --color-biru-1: #0000b0;
+  --color-biru-2: #0000ff;
+  --color-biru-3: #0055ff;
+  --color-biru-4: #00aaff;
+  --color-biru-5: #00d8ff;
+
+  --color-merah-1: #800100;
+  --color-merah-2: #c30001;
+  --color-merah-3: #fd0002;
+  --color-merah-4: #ff5555;
+  --color-merah-5: #fcaeb3;
+
+  --color-kuning-1: #6f4200;
+  --color-kuning-2: #a16300;
+  --color-kuning-3: #de8900;
+  --color-kuning-4: #ffc700;
+  --color-kuning-5: #fffa00;
+
+  --color-ungu-1: #400068;
+  --color-ungu-2: #6a0dad;
+  --color-ungu-3: #9933ff;
+  --color-ungu-4: #bf80ff;
+  --color-ungu-5: #ebd4ff;
+
+  --color-toska-1: #004444;
+  --color-toska-2: #007e7e;
+  --color-toska-3: #00b4b4;
+  --color-toska-4: #4de8e8;
+  --color-toska-5: #bdf7f7;
+
+  --color-oranye-1: #7c2500;
+  --color-oranye-2: #b83d00;
+  --color-oranye-3: #ff5e00;
+  --color-oranye-4: #ff944d;
+  --color-oranye-5: #ffd6b8;
+
+  --color-magenta-1: #63003b;
+  --color-magenta-2: #9e005e;
+  --color-magenta-3: #e60088;
+  --color-magenta-4: #ff5cb8;
+  --color-magenta-5: #ffc7e6;
+
+  --color-kelabu-1: #1e293b;
+  --color-kelabu-2: #475569;
+  --color-kelabu-3: #64748b;
+  --color-kelabu-4: #94a3b8;
+  --color-kelabu-5: #e2e8f0;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Transisi halus navbar[cite: 17] */
+/* Transisi halus navbar */
 #main-navbar {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -20,7 +75,7 @@
   transform: translateY(-115%);
 }
 
-/* SVG Interactive Map Polygons & Pan/Drag[cite: 17] */
+/* SVG Interactive Map Polygons & Pan/Drag */
 .map-container-draggable {
   cursor: grab;
   user-select: none;
@@ -55,13 +110,13 @@
   stroke-width: 2.2 !important;
 }
 
-/* Custom scrollbar[cite: 17] */
+/* Custom scrollbar */
 .custom-scroll::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 .custom-scroll::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 }
 .custom-scroll::-webkit-scrollbar-thumb {
