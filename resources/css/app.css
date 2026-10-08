@@ -1,76 +1,8 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../views/**/*.blade.php';
-
-@theme {
-  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-
-  /* Palet Warna Kustom Serumpun */
-  --color-serumpun-charcoal: #1b212a;
-  --color-serumpun-blue: #0284c7;
-  --color-serumpun-accent: #d97706;
-
-  --color-hijau-1: #17743f;
-  --color-hijau-2: #3ba167;
-  --color-hijau-3: #34cd73;
-  --color-hijau-4: #4bff93;
-  --color-hijau-5: #a8ffcb;
-
-  --color-biru-1: #0000b0;
-  --color-biru-2: #0000ff;
-  --color-biru-3: #0055ff;
-  --color-biru-4: #00aaff;
-  --color-biru-5: #00d8ff;
-
-  --color-merah-1: #800100;
-  --color-merah-2: #c30001;
-  --color-merah-3: #fd0002;
-  --color-merah-4: #ff5555;
-  --color-merah-5: #fcaeb3;
-
-  --color-kuning-1: #6f4200;
-  --color-kuning-2: #a16300;
-  --color-kuning-3: #de8900;
-  --color-kuning-4: #ffc700;
-  --color-kuning-5: #fffa00;
-
-  --color-ungu-1: #400068;
-  --color-ungu-2: #6a0dad;
-  --color-ungu-3: #9933ff;
-  --color-ungu-4: #bf80ff;
-  --color-ungu-5: #ebd4ff;
-
-  --color-toska-1: #004444;
-  --color-toska-2: #007e7e;
-  --color-toska-3: #00b4b4;
-  --color-toska-4: #4de8e8;
-  --color-toska-5: #bdf7f7;
-
-  --color-oranye-1: #7c2500;
-  --color-oranye-2: #b83d00;
-  --color-oranye-3: #ff5e00;
-  --color-oranye-4: #ff944d;
-  --color-oranye-5: #ffd6b8;
-
-  --color-magenta-1: #63003b;
-  --color-magenta-2: #9e005e;
-  --color-magenta-3: #e60088;
-  --color-magenta-4: #ff5cb8;
-  --color-magenta-5: #ffc7e6;
-
-  --color-kelabu-1: #1e293b;
-  --color-kelabu-2: #475569;
-  --color-kelabu-3: #64748b;
-  --color-kelabu-4: #94a3b8;
-  --color-kelabu-5: #e2e8f0;
-}
-
-/* Transisi halus navbar */
+/* Transisi halus untuk navbar saat hide/show dan perubahan warna */
 #main-navbar {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .nav-hidden {
   transform: translateY(-115%);
 }
@@ -81,9 +13,11 @@
   user-select: none;
   touch-action: none;
 }
+
 .map-container-draggable.is-dragging {
   cursor: grabbing;
 }
+
 #map-pan-zoom-layer {
   transition: transform 0.08s ease-out;
   transform-origin: center center;
@@ -96,33 +30,91 @@
   cursor: pointer;
   transition: fill 0.2s ease, stroke-width 0.2s ease;
 }
+
 .dark .map-region {
   fill: #9a3412;
   stroke: #1e293b;
 }
+
 .map-region:hover {
   fill: #0284c7 !important;
   filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.4));
 }
+
 .map-region.selected-region {
   fill: #0ea5e9 !important;
   stroke: #fcd34d !important;
   stroke-width: 2.2 !important;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar untuk modal suku bangsa & autocomplete */
 .custom-scroll::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 .custom-scroll::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 }
+
 .custom-scroll::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 8px;
 }
+
 .dark .custom-scroll::-webkit-scrollbar-thumb {
   background: #475569;
+}
+
+/* Styling Poligon Peta */
+.map-region {
+  stroke-width: 0.6;
+  cursor: pointer;
+  transition: fill 0.18s ease, stroke 0.18s ease, filter 0.18s ease;
+}
+
+.malaysia {
+  fill: #0000b0;
+  stroke: #00aaff;
+}
+
+.indonesia {
+  fill: #800100;
+  stroke: #ff5555;
+}
+
+.brunei {
+  fill: #a16300;
+  stroke: #fffa00;
+}
+
+.singapura {
+  fill: #9e005e;
+  stroke: #ffc7e6;
+}
+
+.patani {
+  fill: #17743f;
+  stroke: #4bff93;
+}
+
+.timor {
+  fill: #475569;
+  stroke: #94a3b8;
+}
+
+/* Efek saat Poligon Di-hover */
+.map-region:hover {
+  fill: #0284c7 !important;
+  stroke: #38bdf8 !important;
+  stroke-width: 1.2 !important;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.7));
+}
+
+/* Poligon yang Terpilih / Aktif */
+.map-region.selected-region {
+  fill: #0ea5e9 !important;
+  stroke: #fcd34d !important;
+  stroke-width: 1.6 !important;
 }

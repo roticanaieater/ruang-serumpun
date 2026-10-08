@@ -413,7 +413,10 @@ function renderAutocompleteSuggestions(keyword) {
    9. PETA INTERAKTIF SVG (ZOOM & DRAG / PAN BEBAS)
    ========================================================================== */
 const mapWrapper = document.getElementById('map-interactive-wrapper');
-const mapPanZoomLayer = document.getElementById('map-pan-zoom-layer');
+const mapTooltip = document.getElementById('map-floating-tooltip');
+const tooltipLogo = document.getElementById('tooltip-logo');
+const tooltipTitle = document.getElementById('tooltip-title');
+const tooltipSubtitle = document.getElementById('tooltip-subtitle');
 const mapRegions = document.querySelectorAll('.map-region');
 const mapHoverHint = document.getElementById('map-hover-hint');
 
@@ -506,6 +509,73 @@ mapRegions.forEach(region => {
   region.addEventListener('click', (e) => {
     const name = region.getAttribute('data-name') || 'Nusantara';
     appendSearchTerm(name);
+    region.classList.toggle('selected-region');
+  });
+});
+
+mapRegions.forEach(region => {
+  // 1. Saat kursor masuk ke poligon daerah
+  region.addEventListener('mouseenter', (e) => {
+    const name = region.getAttribute('data-name') || region.getAttribute('data-tooltip-text') || 'Daerah';
+    const aksara = region.getAttribute('data-aksara');
+    const logoUrl = region.getAttribute('data-logo');
+
+    // Update teks info bar di atas peta
+    if (mapHoverHint) mapHoverHint.innerText = name;
+
+    // Isi konten Tooltip
+    if (mapTooltip) {
+      tooltipTitle.innerText = name;
+      tooltipSubtitle.innerText = aksara;
+
+      if (logoUrl && logoUrl.trim() !== '') {
+        tooltipLogo.src = logoUrl;
+        tooltipLogo.style.display = 'block';
+      } else {
+        tooltipLogo.style.display = 'none';
+      }
+
+      // Tampilkan Tooltip
+      mapTooltip.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        mapTooltip.classList.remove('opacity-0');
+        mapTooltip.classList.add('opacity-100');
+      });
+    }
+  });
+
+  // 2. Saat kursor bergerak di atas poligon (posisi tooltip ikut bergerak)
+  region.addEventListener('mousemove', (e) => {
+    if (!mapTooltip || mapTooltip.classList.contains('hidden')) return;
+
+    const wrapperRect = mapWrapper.getBoundingClientRect();
+    const x = e.clientX - wrapperRect.left;
+    const y = e.clientY - wrapperRect.top;
+
+    // Posisikan tooltip tepat di atas kursor mouse (offset 10px ke atas)
+    mapTooltip.style.left = `${x}px`;
+    mapTooltip.style.top = `${y - 10}px`;
+  });
+
+  // 3. Saat kursor meninggalkan poligon
+  region.addEventListener('mouseleave', () => {
+    if (mapHoverHint) mapHoverHint.innerText = "Nusantara & Semenanjung Melayu";
+
+    if (mapTooltip) {
+      mapTooltip.classList.remove('opacity-100');
+      mapTooltip.classList.add('opacity-0');
+      setTimeout(() => {
+        if (mapTooltip.classList.contains('opacity-0')) {
+          mapTooltip.classList.add('hidden');
+        }
+      }, 150);
+    }
+  });
+
+  // 4. Klik poligon untuk menambah ke input pencarian
+  region.addEventListener('click', () => {
+    const name = region.getAttribute('data-name') || region.getAttribute('data-tooltip-text') || 'Daerah';
+    appendSearchTerm(name.split('|')[0].trim());
     region.classList.toggle('selected-region');
   });
 });
