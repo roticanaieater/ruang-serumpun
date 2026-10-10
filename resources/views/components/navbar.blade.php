@@ -39,21 +39,21 @@
             <!-- Dropdown Menu Bahasa -->
             <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-48 rounded-2xl bg-white dark:bg-[#1b212a] shadow-xl border border-slate-200/80 dark:border-slate-800 py-2 z-50 transform origin-top-right transition-all">
               <div class="px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">Pilih Bahasa</div>
-              <button onclick="selectLanguage('id', 'Indonesia', 'https://flagcdn.com/w40/id.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
+              <button onclick="selectLanguage('id', 'Indonesia', 'https://flagcdn.com/w40/id.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-serumpun-dark dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
                 <img src="https://flagcdn.com/w40/id.png" alt="ID" class="w-5 h-3.5 rounded object-cover shadow-sm">
                 <span>Indonesia</span>
               </button>
-              <button onclick="selectLanguage('ms', 'Melayu', 'https://flagcdn.com/w40/my.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
+              <button onclick="selectLanguage('ms', 'Melayu', 'https://flagcdn.com/w40/my.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-serumpun-dark dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
                 <img src="https://flagcdn.com/w40/my.png" alt="MY" class="w-5 h-3.5 rounded object-cover shadow-sm">
                 <span>Melayu</span>
               </button>
-              <button onclick="selectLanguage('en', 'English', 'https://flagcdn.com/w40/gb.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
+              <button onclick="selectLanguage('en', 'English', 'https://flagcdn.com/w40/gb.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-serumpun-dark dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
                 <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="w-5 h-3.5 rounded object-cover shadow-sm">
                 <span>English</span>
               </button>
-              <button onclick="selectLanguage('bn', 'Brunei', 'https://flagcdn.com/w40/bn.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
+              <button onclick="selectLanguage('bn', 'Brunei', 'https://flagcdn.com/w40/bn.png')" class="w-full flex items-center gap-3 px-3.5 py-2.5 text-sm font-semibold text-serumpun-dark dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors">
                 <img src="https://flagcdn.com/w40/bn.png" alt="BN" class="w-5 h-3.5 rounded object-cover shadow-sm">
-                <span>Melayu Brunei</span>
+                <span>جاوي ملايو</span>
               </button>
             </div>
           </div>

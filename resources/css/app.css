@@ -26,30 +26,6 @@
   transform-origin: center center;
 }
 
-.map-region {
-  fill: #b45309;
-  stroke: #ffffff;
-  stroke-width: 1.2;
-  cursor: pointer;
-  transition: fill 0.2s ease, stroke-width 0.2s ease;
-}
-
-.dark .map-region {
-  fill: #9a3412;
-  stroke: #1e293b;
-}
-
-.map-region:hover {
-  fill: #0284c7 !important;
-  filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.4));
-}
-
-.map-region.selected-region {
-  fill: #0ea5e9 !important;
-  stroke: #fcd34d !important;
-  stroke-width: 2.2 !important;
-}
-
 /* Custom scrollbar untuk modal suku bangsa & autocomplete */
 .custom-scroll::-webkit-scrollbar {
   width: 6px;
@@ -120,4 +96,16 @@
   fill: #0ea5e9 !important;
   stroke: #fcd34d !important;
   stroke-width: 1.6 !important;
+}
+
+/* Transisi Halus Background Carousel Dual-Layer */
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
 }
