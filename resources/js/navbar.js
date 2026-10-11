@@ -11,6 +11,12 @@ const state = {
 
 // Database Komprehensif untuk Autocomplete & Pencarian Serumpun
 const serumpunDatabase = [
+    { name: "Indonesia", type: "daerah", category: "Negara Kesatuan Republik Indonesia" },
+  { name: "Malaysia", type: "daerah", category: "Persekutuan Malaysia" },
+  { name: "Singapura", type: "daerah", category: "Republik Singapura" },
+  { name: "Brunei Darussalam", type: "daerah", category: "Negara Brunei Darussalam" },
+  { name: "Timor Leste", type: "daerah", category: "Repúblika Demokrátika Timór-Leste" },
+  { name: "Patani", type: "daerah", category: "Kawasan Melayu Patani & Selatan Thailand" },
   { name: "Pahang", type: "daerah", category: "Negeri Semenanjung Melayu" },
   { name: "Perak", type: "daerah", category: "Negeri Semenanjung Melayu" },
   { name: "Perlis", type: "daerah", category: "Negeri Semenanjung Melayu" },

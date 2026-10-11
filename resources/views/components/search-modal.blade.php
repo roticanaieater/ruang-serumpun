@@ -347,14 +347,59 @@
           </svg>
         </div>
 
-      <div class="mt-3 flex flex-wrap gap-1.5 items-center">
-        <span class="text-xs font-semibold text-slate-500 mr-1">Pilihan Cepat:</span>
-        <button onclick="appendSearchTerm('Sumatera Utara')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-500">Sumatera Utara</button>
-        <button onclick="appendSearchTerm('Pahang')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-500">Pahang</button>
-        <button onclick="appendSearchTerm('Perak')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-500">Perak</button>
-        <button onclick="appendSearchTerm('Kalimantan')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-500">Kalimantan</button>
-        <button onclick="appendSearchTerm('Sulawesi')" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-sky-500">Sulawesi</button>
-      </div>
+      <div class="mt-4 sm:mt-5 flex flex-wrap gap-2.5 items-center pt-1 border-t border-slate-100 dark:border-slate-800/60">
+  <span class="text-xs font-bold text-slate-500 dark:text-slate-400 mr-1 flex items-center gap-1.5 shrink-0">
+    <i class="fa-solid fa-earth-asia text-sky-500 text-sm"></i> Wilayah:
+  </span>
+
+  <!-- 1. INDONESIA (Aksen Merah) -->
+  <button type="button" onclick="appendSearchTerm('Indonesia')" 
+    class="group inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-bold rounded-xl bg-red-50/80 hover:bg-red-100 text-red-900 border border-red-200/80 dark:bg-red-950/30 dark:hover:bg-red-900/50 dark:text-red-200 dark:border-red-800/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all">
+    <img src="{{ asset('images/flags/countries/indonesia.svg') }}" alt="Bendera Indonesia" 
+      class="w-6 h-4 object-cover rounded-sm shadow-xs border border-black/10 shrink-0 group-hover:scale-105 transition-transform">
+    <span>Indonesia</span>
+  </button>
+
+  <!-- 2. MALAYSIA (Aksen Biru) -->
+  <button type="button" onclick="appendSearchTerm('Malaysia')" 
+    class="group inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-bold rounded-xl bg-blue-50/80 hover:bg-blue-100 text-blue-900 border border-blue-200/80 dark:bg-blue-950/30 dark:hover:bg-blue-900/50 dark:text-blue-200 dark:border-blue-800/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all">
+    <img src="{{ asset('images/flags/countries/malaysia.svg') }}" alt="Bendera Malaysia" 
+      class="w-6 h-4 object-cover rounded-sm shadow-xs border border-black/10 shrink-0 group-hover:scale-105 transition-transform">
+    <span>Malaysia</span>
+  </button>
+
+  <!-- 3. SINGAPURA (Aksen Rose/Merah Terang) -->
+  <button type="button" onclick="appendSearchTerm('Singapura')" 
+    class="group inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-bold rounded-xl bg-rose-50/80 hover:bg-rose-100 text-rose-900 border border-rose-200/80 dark:bg-rose-950/30 dark:hover:bg-rose-900/50 dark:text-rose-200 dark:border-rose-800/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all">
+    <img src="{{ asset('images/flags/countries/singapor.svg') }}" alt="Bendera Singapura" 
+      class="w-6 h-4 object-cover rounded-sm shadow-xs border border-black/10 shrink-0 group-hover:scale-105 transition-transform">
+    <span>Singapura</span>
+  </button>
+
+  <!-- 4. BRUNEI (Aksen Kuning / Amber) -->
+  <button type="button" onclick="appendSearchTerm('Brunei')" 
+    class="group inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-bold rounded-xl bg-amber-50/90 hover:bg-amber-100 text-amber-950 border border-amber-200/90 dark:bg-amber-950/30 dark:hover:bg-amber-900/50 dark:text-amber-200 dark:border-amber-800/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all">
+    <img src="{{ asset('images/flags/countries/brunei.svg') }}" alt="Bendera Brunei" 
+      class="w-6 h-4 object-cover rounded-sm shadow-xs border border-black/10 shrink-0 group-hover:scale-105 transition-transform">
+    <span>Brunei</span>
+  </button>
+
+  <!-- 5. TIMOR LESTE (Aksen Oranye) -->
+  <button type="button" onclick="appendSearchTerm('Timor Leste')" 
+    class="group inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-bold rounded-xl bg-orange-50/80 hover:bg-orange-100 text-orange-950 border border-orange-200/80 dark:bg-orange-950/30 dark:hover:bg-orange-900/50 dark:text-orange-200 dark:border-orange-800/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all">
+    <img src="{{ asset('images/flags/countries/timor.svg') }}" alt="Bendera Timor Leste" 
+      class="w-6 h-4 object-cover rounded-sm shadow-xs border border-black/10 shrink-0 group-hover:scale-105 transition-transform">
+    <span>Timor Leste</span>
+  </button>
+
+  <!-- 6. PATANI (Aksen Hijau Zamrud) -->
+  <button type="button" onclick="appendSearchTerm('Patani')" 
+    class="group inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-bold rounded-xl bg-emerald-50/80 hover:bg-emerald-100 text-emerald-950 border border-emerald-200/80 dark:bg-emerald-950/30 dark:hover:bg-emerald-900/50 dark:text-emerald-200 dark:border-emerald-800/60 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all">
+    <img src="{{ asset('images/flags/countries/patani.svg') }}" alt="Bendera Patani" 
+      class="w-6 h-4 object-cover rounded-sm shadow-xs border border-black/10 shrink-0 group-hover:scale-105 transition-transform">
+    <span class="flex items-center gap-1">Patani <span class="text-[10px] opacity-70 font-semibold">(Thailand)</span></span>
+  </button>
+</div>
     </div>
 
     <!-- Tab 2: 20 Kartu Suku Bangsa -->
