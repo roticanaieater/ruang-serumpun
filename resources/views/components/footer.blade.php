@@ -1,4 +1,10 @@
-<footer class="footer-dual-theme border-t border-slate-800/80 dark:border-slate-300/80 text-white dark:text-slate-900 pt-16 pb-12 transition-colors duration-300">
+<footer 
+  class="relative bg-cover bg-center bg-no-repeat border-t border-slate-700/30 dark:border-slate-300/30 py-16 text-slate-100 dark:text-slate-900 transition-colors duration-300 bg-[image:var(--bg-footer-light)] dark:bg-[image:var(--bg-footer-dark)]"
+  style="
+    --bg-footer-light: url('{{ asset('images/background/bg-dark.png') }}');
+    --bg-footer-dark: url('{{ asset('images/background/bg-light.png') }}');
+  "
+>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Bagian Atas: Grid Kolom Utama -->
@@ -8,17 +14,13 @@
         <div class="md:col-span-5 lg:col-span-5 space-y-6">
           <!-- Logo & Brand Header -->
           <a href="#hero" class="inline-flex items-center gap-3 group" aria-label="Beranda Serumpun">
+  
+  <!-- Container Gambar Logo -->
+  <div class="h-9 flex items-center justify-center transition-transform group-hover:scale-105">
             <!-- Icon Badge Logo -->
-            <div class="w-9 h-9 rounded-xl bg-sky-500/20 dark:bg-slate-900/10 flex items-center justify-center p-1.5 transition-transform group-hover:scale-105 border border-white/20 dark:border-slate-800/20">
-              <svg viewBox="0 0 40 40" class="w-full h-full" fill="none">
-                <path d="M14 6L26 6C30.4183 6 34 9.58172 34 14V26C34 30.4183 30.4183 34 26 34L14 34C9.58172 34 6 30.4183 6 26V14C6 9.58172 9.58172 6 14 6Z" stroke="#38bdf8" stroke-width="4" stroke-linejoin="round"/>
-                <path d="M12 24L20 16L28 24" stroke="#0284c7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 28L24 20" stroke="#0ea5e9" stroke-width="3.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="font-extrabold text-2xl tracking-tight text-white dark:text-slate-950">
-              Serumpun
-            </span>
+            <img src="{{ asset('images/logo/logo-white.png') }}" class="h-15 w-auto object-contain dark:hidden">
+            <img src="{{ asset('images/logo/logo-black.png') }}" class="h-15 w-auto object-contain hidden dark:block">
+  </div>
           </a>
 
           <!-- Deskripsi Ringkas / Tagline -->
@@ -27,17 +29,17 @@
           </p>
 
           <!-- Deretan Ikon Sosial Media Sesuai Contoh (X, Instagram, LinkedIn, GitHub) -->
-          <div class="flex items-center gap-5 pt-1 text-slate-300 dark:text-slate-800 text-lg">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 dark:hover:text-pink-600 transition-colors" aria-label="Instagram Serumpun">
+          <div class="flex items-center gap-5 pt-1 text-slate-300 dark:text-serumpun-dark text-lg">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-serumpun-yellow dark:hover:text-serumpun-middark transition-colors" aria-label="Instagram Serumpun">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 dark:hover:text-pink-600 transition-colors" aria-label="Instagram Serumpun">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-serumpun-yellow dark:hover:text-serumpun-middark transition-colors" aria-label="Instagram Serumpun">
               <i class="fa-brands fa-facebook"></i>
             </a>
-            <a href="https://threads.com" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 dark:hover:text-pink-600 transition-colors" aria-label="Instagram Serumpun">
+            <a href="https://threads.com" target="_blank" rel="noopener noreferrer" class="hover:text-serumpun-yellow dark:hover:text-serumpun-middark transition-colors" aria-label="Instagram Serumpun">
               <i class="fa-brands fa-threads"></i>
             </a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 dark:hover:text-pink-600 transition-colors" aria-label="Instagram Serumpun">
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="hover:text-serumpun-yellow dark:hover:text-serumpun-middark transition-colors" aria-label="Instagram Serumpun">
               <i class="fa-brands fa-tiktok"></i>
             </a>
           </div>

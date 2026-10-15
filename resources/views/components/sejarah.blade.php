@@ -60,7 +60,7 @@
           <div class="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
             <button 
               onclick="showToastFeedback('Membuka artikel: Pasang Surut Aceh-Johor')" 
-              class="w-full sm:w-auto px-5 py-2 rounded-xl bg-[#1b212a] dark:bg-slate-800 hover:bg-slate-700 dark:hover:bg-slate-700 text-white font-bold text-xs tracking-wider transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5"
+              class="w-full sm:w-auto px-5 py-2 rounded-xl bg-serumpun-dark dark:bg-white hover:bg-serumpun-middark dark:hover:bg-serumpun-yellow text-white dark:text-serumpun-dark font-bold text-xs tracking-wider transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5"
             >
               <span>Baca selengkapnya</span>
             </button>
@@ -91,7 +91,7 @@
           <div class="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
             <button 
               onclick="showToastFeedback('Membuka artikel: Revolusi Sosial 1946')" 
-              class="w-full sm:w-auto px-5 py-2 rounded-xl bg-[#1b212a] dark:bg-slate-800 hover:bg-slate-700 dark:hover:bg-slate-700 text-white font-bold text-xs tracking-wider transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5"
+              class="w-full sm:w-auto px-5 py-2 rounded-xl bg-serumpun-dark dark:bg-white hover:bg-serumpun-middark dark:hover:bg-serumpun-yellow text-white dark:text-serumpun-dark font-bold text-xs tracking-wider transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5"
             >
               <span>Baca selengkapnya</span>
             </button>
@@ -122,7 +122,7 @@
           <div class="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
             <button 
               onclick="showToastFeedback('Membuka artikel: Jaringan Dagang Makassar')" 
-              class="w-full sm:w-auto px-5 py-2 rounded-xl bg-[#1b212a] dark:bg-slate-800 hover:bg-slate-700 dark:hover:bg-slate-700 text-white font-bold text-xs tracking-wider transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5"
+              class="w-full sm:w-auto px-5 py-2 rounded-xl bg-serumpun-dark dark:bg-white hover:bg-serumpun-middark dark:hover:bg-serumpun-yellow text-white dark:text-serumpun-dark font-bold text-xs tracking-wider transition-all duration-200 shadow-sm active:scale-95 flex items-center justify-center gap-1.5"
             >
               <span>Baca selengkapnya</span>
             </button>
@@ -152,7 +152,7 @@
           <!-- LAPISAN GELAP ATAS (Desktop menyusut ke kiri saat di-hover; Mobile tetap adaptif) -->
           <div 
             id="riwayat-negeri-card" 
-            class="relative z-10 w-full bg-[#1b212a] text-white p-4 sm:p-5 md:py-4 md:px-6 transition-all duration-500 ease-out md:group-hover:w-[calc(100%-80px)] lg:group-hover:w-[calc(100%-96px)] rounded-2xl sm:rounded-3xl"
+            class="relative z-10 w-full bg-serumpun-dark dark:bg-white text-white p-4 sm:p-5 md:py-4 md:px-6 transition-all duration-500 ease-out md:group-hover:w-[calc(100%-80px)] lg:group-hover:w-[calc(100%-96px)] rounded-2xl sm:rounded-3xl"
           >
             
             <!-- Tampilan Desktop & Tablet (Horizontal Row) -->

@@ -4,16 +4,11 @@
         
         <!-- Bagian 1: Logo Serumpun -->
         <a href="#hero" class="flex items-center gap-2.5 group cursor-pointer" aria-label="Beranda Serumpun">
-          <div class="relative w-8 h-8 flex items-center justify-center">
-            <svg viewBox="0 0 40 40" class="w-8 h-8 transform group-hover:rotate-12 transition-transform duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 6L26 6C30.4183 6 34 9.58172 34 14V26C34 30.4183 30.4183 34 26 34L14 34C9.58172 34 6 30.4183 6 26V14C6 9.58172 9.58172 6 14 6Z" stroke="#38bdf8" stroke-width="4" stroke-linejoin="round"/>
-              <path d="M12 24L20 16L28 24" stroke="#0284c7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 28L24 20" stroke="#0ea5e9" stroke-width="3.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span id="nav-brand-text" class="font-extrabold text-xl tracking-tight text-white transition-colors duration-300">
-            SERUMPUN
-          </span>
+          <div class="h-9 flex items-center justify-center transition-transform group-hover:scale-105">
+            <!-- Icon Badge Logo -->
+            <img src="{{ asset('images/logo/logo-white.png') }}" class="h-10 w-auto object-contain dark:hidden">
+            <img src="{{ asset('images/logo/logo-black.png') }}" class="h-10 w-auto object-contain hidden dark:block">
+  </div>
         </a>
 
         <!-- Bagian 2: Kategori Navigasi (Mode Desktop) -->

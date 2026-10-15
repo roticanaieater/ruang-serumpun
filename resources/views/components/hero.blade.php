@@ -18,7 +18,7 @@
     >
     
     <!-- Dark Gradient Masking -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/45 via-55% to-[#12161c] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-slate-50 dark:to-[#12161c]"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/30 to-black/80 pointer-events-none"></div>
   </div>
 
@@ -58,7 +58,7 @@
   </div>
 
   <!-- Indikator Gulir -->
-  <a href="#sejarah" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 hover:text-white flex flex-col items-center gap-1 transition-colors text-xs font-medium" aria-label="Scroll ke konten">
+  <a href="#sejarah" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-serumpun-dark hover:text-serumpun-middark dark:text-white dark:hover:text-serumpun-yellow flex flex-col items-center gap-1 transition-colors text-xs font-medium" aria-label="Scroll ke konten">
     <span>Scroll ke bawah</span>
     <i class="fa-solid fa-chevron-down animate-bounce text-sm"></i>
   </a>
