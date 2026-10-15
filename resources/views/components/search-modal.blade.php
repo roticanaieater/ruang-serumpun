@@ -405,6 +405,7 @@
     <!-- Tab 2: 20 Kartu Suku Bangsa -->
     <!-- Tab 2: 20 Kartu Suku Bangsa (Desain Editorial Heritage) -->
     <!-- Tab 2: 20 Kartu Suku Bangsa (Editorial Heritage + Hover Kuning & Expand) -->
+    <!-- Tab 2: 20 Kartu Suku Bangsa (Format Aksen Kustom) -->
     <div id="tab-content-suku" class="p-5 sm:p-7 block">
       <div class="flex items-center justify-between mb-4">
         <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
@@ -415,8 +416,8 @@
 
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3.5 max-h-[420px] overflow-y-auto custom-scroll pr-1 py-1" id="suku-cards-grid">
         
-        <!-- 1. Aceh (Aksen Coral Red) -->
-        <div onclick="appendSearchTerm('Aceh')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#ec4848] transition-all duration-200 flex items-stretch">
+        <!-- 1. Aceh (Aksen Merah) -->
+        <div onclick="appendSearchTerm('Aceh')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-merah-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-10 h-5 flex items-center mb-1">
               <img src="{{ asset('images/icons/aceh.svg') }}" alt="Ikon Aceh" class="w-10 h-5 object-contain object-left">
@@ -428,8 +429,8 @@
           </div>
         </div>
 
-        <!-- 2. Bali (Aksen Emerald Teal) -->
-        <div onclick="appendSearchTerm('Bali')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#0d9488] transition-all duration-200 flex items-stretch">
+        <!-- 2. Bali (Aksen Hijau / Toska) -->
+        <div onclick="appendSearchTerm('Bali')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-hijau-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-6 h-6 flex items-center mb-1">
               <img src="{{ asset('images/icons/bali.svg') }}" alt="Ikon Bali" class="w-6 h-6 object-contain object-left">
@@ -441,8 +442,8 @@
           </div>
         </div>
 
-        <!-- 3. Banjar (Aksen Amber Topaz) -->
-        <div onclick="appendSearchTerm('Banjar')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#d97706] transition-all duration-200 flex items-stretch">
+        <!-- 3. Banjar (Aksen Kuning / Oranye) -->
+        <div onclick="appendSearchTerm('Banjar')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-kuning-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -457,8 +458,8 @@
           </div>
         </div>
 
-        <!-- 4. Batak (Aksen Maroon Gorga) -->
-        <div onclick="appendSearchTerm('Batak')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#991b1b] transition-all duration-200 flex items-stretch">
+        <!-- 4. Batak (Aksen Merah Tua) -->
+        <div onclick="appendSearchTerm('Batak')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-merah-3 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-6 h-6 flex items-center mb-1">
               <img src="{{ asset('images/icons/batak.svg') }}" alt="Ikon Batak" class="w-6 h-6 object-contain object-left">
@@ -470,8 +471,8 @@
           </div>
         </div>
 
-        <!-- 5. Bugis (Aksen Royal Blue) -->
-        <div onclick="appendSearchTerm('Bugis')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#2563eb] transition-all duration-200 flex items-stretch">
+        <!-- 5. Bugis (Aksen Biru) -->
+        <div onclick="appendSearchTerm('Bugis')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-biru-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -486,8 +487,8 @@
           </div>
         </div>
 
-        <!-- 6. Dayak (Aksen Golden Ochre) -->
-        <div onclick="appendSearchTerm('Dayak')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#eab308] transition-all duration-200 flex items-stretch">
+        <!-- 6. Dayak (Aksen Kuning) -->
+        <div onclick="appendSearchTerm('Dayak')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-kuning-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -502,8 +503,8 @@
           </div>
         </div>
 
-        <!-- 7. Gorontalo (Aksen Indigo) -->
-        <div onclick="appendSearchTerm('Gorontalo')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#6366f1] transition-all duration-200 flex items-stretch">
+        <!-- 7. Gorontalo (Aksen Ungu) -->
+        <div onclick="appendSearchTerm('Gorontalo')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-ungu-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -517,8 +518,8 @@
           </div>
         </div>
 
-        <!-- 8. Jawa (Aksen Terracotta Rust) -->
-        <div onclick="appendSearchTerm('Jawa')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#c2410c] transition-all duration-200 flex items-stretch">
+        <!-- 8. Jawa (Aksen Oranye / Cokelat) -->
+        <div onclick="appendSearchTerm('Jawa')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-oranye-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-6 h-6 flex items-center mb-1">
               <img src="{{ asset('images/icons/jawa.svg') }}" alt="Ikon Jawa" class="w-6 h-6 object-contain object-left">
@@ -530,8 +531,8 @@
           </div>
         </div>
 
-        <!-- 9. Kadazan-Dusun (Aksen Cyan Teal) -->
-        <div onclick="appendSearchTerm('Kadazan-Dusun')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#06b6d4] transition-all duration-200 flex items-stretch">
+        <!-- 9. Kadazan-Dusun (Aksen Biru Muda / Toska) -->
+        <div onclick="appendSearchTerm('Kadazan-Dusun')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-biru-1 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -546,8 +547,8 @@
           </div>
         </div>
 
-        <!-- 10. Karo (Aksen Crimson) -->
-        <div onclick="appendSearchTerm('Karo')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#be123c] transition-all duration-200 flex items-stretch">
+        <!-- 10. Karo (Aksen Merah) -->
+        <div onclick="appendSearchTerm('Karo')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-merah-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -562,8 +563,8 @@
           </div>
         </div>
 
-        <!-- 11. Kerinci (Aksen Forest Emerald) -->
-        <div onclick="appendSearchTerm('Kerinci')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#15803d] transition-all duration-200 flex items-stretch">
+        <!-- 11. Kerinci (Aksen Hijau) -->
+        <div onclick="appendSearchTerm('Kerinci')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-hijau-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -578,8 +579,8 @@
           </div>
         </div>
 
-        <!-- 12. Lampung (Aksen Amber Gold) -->
-        <div onclick="appendSearchTerm('Lampung')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#b45309] transition-all duration-200 flex items-stretch">
+        <!-- 12. Lampung (Aksen Kuning / Emas) -->
+        <div onclick="appendSearchTerm('Lampung')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-kuning-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-10 h-5 flex items-center mb-1">
               <img src="{{ asset('images/icons/lampung.svg') }}" alt="Ikon Lampung" class="w-10 h-5 object-contain object-left">
@@ -591,8 +592,8 @@
           </div>
         </div>
 
-        <!-- 13. Madura (Aksen Crimson Brick) -->
-        <div onclick="appendSearchTerm('Madura')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#e11d48] transition-all duration-200 flex items-stretch">
+        <!-- 13. Madura (Aksen Merah) -->
+        <div onclick="appendSearchTerm('Madura')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-merah-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -606,8 +607,8 @@
           </div>
         </div>
 
-        <!-- 14. Makassar (Aksen Ruby Red) -->
-        <div onclick="appendSearchTerm('Makassar')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#dc2626] transition-all duration-200 flex items-stretch">
+        <!-- 14. Makassar (Aksen Merah) -->
+        <div onclick="appendSearchTerm('Makassar')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-merah-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-6 h-6 flex items-center mb-1">
               <img src="{{ asset('images/icons/makassar.svg') }}" alt="Ikon Makassar" class="w-6 h-6 object-contain object-left">
@@ -619,8 +620,8 @@
           </div>
         </div>
 
-        <!-- 15. Melayu (Aksen Forest Green) -->
-        <div onclick="appendSearchTerm('Melayu')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#16a34a] transition-all duration-200 flex items-stretch">
+        <!-- 15. Melayu (Aksen Hijau) -->
+        <div onclick="appendSearchTerm('Melayu')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-hijau-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -634,8 +635,8 @@
           </div>
         </div>
 
-        <!-- 16. Minangkabau (Aksen Marawa Red) -->
-        <div onclick="appendSearchTerm('Minangkabau')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#9f1239] transition-all duration-200 flex items-stretch">
+        <!-- 16. Minangkabau (Aksen Merah Marawa) -->
+        <div onclick="appendSearchTerm('Minangkabau')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-merah-3 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-10 h-5 flex items-center mb-1">
               <img src="{{ asset('images/icons/minang.svg') }}" alt="Ikon Minang" class="w-10 h-5 object-contain object-left">
@@ -647,8 +648,8 @@
           </div>
         </div>
 
-        <!-- 17. Nias (Aksen Gold) -->
-        <div onclick="appendSearchTerm('Nias')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#ca8a04] transition-all duration-200 flex items-stretch">
+        <!-- 17. Nias (Aksen Kuning) -->
+        <div onclick="appendSearchTerm('Nias')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-kuning-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -663,8 +664,8 @@
           </div>
         </div>
 
-        <!-- 18. Sasak (Aksen Marine Blue) -->
-        <div onclick="appendSearchTerm('Sasak')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#3b82f6] transition-all duration-200 flex items-stretch">
+        <!-- 18. Sasak (Aksen Biru) -->
+        <div onclick="appendSearchTerm('Sasak')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-biru-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
@@ -679,8 +680,8 @@
           </div>
         </div>
 
-        <!-- 19. Sunda (Aksen Parahyangan Green) -->
-        <div onclick="appendSearchTerm('Sunda')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#059669] transition-all duration-200 flex items-stretch">
+        <!-- 19. Sunda (Aksen Hijau) -->
+        <div onclick="appendSearchTerm('Sunda')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-hijau-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-6 h-6 flex items-center mb-1">
               <img src="{{ asset('images/icons/sunda.svg') }}" alt="Ikon Sunda" class="w-6 h-6 object-contain object-left">
@@ -692,8 +693,8 @@
           </div>
         </div>
 
-        <!-- 20. Toraja (Aksen Sienna Ochre) -->
-        <div onclick="appendSearchTerm('Toraja')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-[#b45309] transition-all duration-200 flex items-stretch">
+        <!-- 20. Toraja (Aksen Cokelat / Oranye) -->
+        <div onclick="appendSearchTerm('Toraja')" class="cursor-pointer group h-16 sm:h-[72px] max-h-[74px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.03] border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-[#1a212b] hover:bg-amber-400 dark:hover:bg-amber-400 border-l-4 border-l-cokelat-2 transition-all duration-200 flex items-stretch">
           <div class="flex-1 px-3.5 py-2 flex flex-col justify-center min-w-0 select-none">
             <div class="w-5 h-5 flex items-center mb-1 text-slate-400 dark:text-slate-500 group-hover:text-slate-950 transition-colors">
               <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
