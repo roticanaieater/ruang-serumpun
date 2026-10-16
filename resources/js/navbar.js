@@ -509,7 +509,7 @@ mapRegions.forEach(region => {
     mapHoverHint.innerText = name;
   });
   region.addEventListener('mouseleave', () => {
-    mapHoverHint.innerText = "Nusantara & Semenanjung Melayu";
+    mapHoverHint.innerText = "Nusantara";
   });
 
   region.addEventListener('click', (e) => {
@@ -535,11 +535,19 @@ mapRegions.forEach(region => {
       tooltipSubtitle.innerText = aksara;
 
       if (logoUrl && logoUrl.trim() !== '') {
-        tooltipLogo.src = logoUrl;
-        tooltipLogo.style.display = 'block';
-      } else {
-        tooltipLogo.style.display = 'none';
-      }
+  tooltipLogo.src = logoUrl;
+  tooltipLogo.style.display = 'block';
+
+  if (region.classList.contains('indonesia')) {
+    tooltipLogo.classList.remove('rounded-md', 'object-cover');
+    tooltipLogo.classList.add('rounded-none', 'object-contain');
+  } else {
+    tooltipLogo.classList.remove('rounded-none', 'object-contain');
+    tooltipLogo.classList.add('rounded-md', 'object-cover');
+  }
+} else {
+  tooltipLogo.style.display = 'none';
+}
 
       // Tampilkan Tooltip
       mapTooltip.classList.remove('hidden');
