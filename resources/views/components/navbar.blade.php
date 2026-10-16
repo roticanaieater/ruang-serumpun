@@ -6,9 +6,9 @@
         <a href="#hero" class="flex items-center gap-2.5 group cursor-pointer" aria-label="Beranda Serumpun">
           <div class="h-9 flex items-center justify-center transition-transform group-hover:scale-105">
             <!-- Icon Badge Logo -->
-            <img src="{{ asset('images/logo/logo-white.png') }}" class="h-10 w-auto object-contain dark:hidden">
-            <img src="{{ asset('images/logo/logo-black.png') }}" class="h-10 w-auto object-contain hidden dark:block">
-  </div>
+            <img id="nav-logo-white" src="{{ asset('images/logo/logo-white.png') }}" alt="Logo Serumpun" class="h-10 w-auto object-contain">
+            <img id="nav-logo-black" src="{{ asset('images/logo/logo-black.png') }}" alt="Logo Serumpun" class="h-10 w-auto object-contain hidden">
+        </div>
         </a>
 
         <!-- Bagian 2: Kategori Navigasi (Mode Desktop) -->

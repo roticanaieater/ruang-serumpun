@@ -76,11 +76,21 @@ const navBrandText = document.getElementById('nav-brand-text');
 const navItemLinks = document.querySelectorAll('.nav-item-link');
 const navMiscIcons = document.querySelectorAll('#nav-misc-actions button');
 const langArrow = document.getElementById('lang-arrow');
+const navLogoWhite = document.getElementById('nav-logo-white');
+const navLogoBlack = document.getElementById('nav-logo-black');
+
+const navActionBtns = [
+  document.getElementById('lang-btn'),
+  document.getElementById('theme-toggle-btn'),
+  document.getElementById('open-search-btn'),
+  document.getElementById('mobile-menu-toggle')
+].filter(Boolean);
 
 function updateNavbarAesthetics() {
   const scrollPos = window.scrollY;
   const heroBottom = heroSection ? (heroSection.offsetHeight - 90) : 400;
   const isPastHero = scrollPos > heroBottom;
+  const isDark = document.documentElement.classList.contains('dark');
 
   const currentScrollY = window.scrollY;
   const scrollDelta = currentScrollY - state.lastScrollY;
@@ -93,10 +103,20 @@ function updateNavbarAesthetics() {
 
   state.lastScrollY = currentScrollY;
 
+  if (navLogoWhite && navLogoBlack) {
+    if (isPastHero && !isDark) {
+      navLogoWhite.classList.add('hidden');
+      navLogoBlack.classList.remove('hidden');
+    } else {
+      navLogoWhite.classList.remove('hidden');
+      navLogoBlack.classList.add('hidden');
+    }
+  }
+
   if (isPastHero) {
     mainNavbar.classList.add(
       'bg-white/95',
-      'dark:bg-[#1b212a]/95',
+      'dark:bg-serumpun-dark',
       'shadow-lg',
       'shadow-black/5',
       'backdrop-blur-md',
@@ -105,27 +125,25 @@ function updateNavbarAesthetics() {
     );
     mainNavbar.classList.remove('bg-transparent', 'border-transparent');
 
-    navBrandText.classList.remove('text-white');
-    navBrandText.classList.add('text-[#1b212a]', 'dark:text-white');
-
     navItemLinks.forEach(link => {
       link.classList.remove('text-white', 'hover:text-sky-300');
-      link.classList.add('text-[#1b212a]', 'dark:text-slate-200', 'hover:text-sky-600', 'dark:hover:text-sky-400');
+      link.classList.add('text-serumpun-dark', 'dark:text-slate-200', 'hover:text-sky-600', 'dark:hover:text-sky-400');
     });
 
-    navMiscIcons.forEach(btn => {
+    navActionBtns.forEach(btn => {
       btn.classList.remove('text-white', 'hover:bg-white/20');
-      btn.classList.add('text-[#1b212a]', 'dark:text-white', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
+      btn.classList.add('text-serumpun-dark', 'dark:text-white', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
     });
+    
     if (langArrow) {
       langArrow.classList.remove('text-white');
-      langArrow.classList.add('text-[#1b212a]', 'dark:text-white');
+      langArrow.classList.add('text-serumpun-dark', 'dark:text-white');
     }
 
   } else {
     mainNavbar.classList.remove(
       'bg-white/95',
-      'dark:bg-[#1b212a]/95',
+      'dark:bg-serumpun-dark',
       'shadow-lg',
       'shadow-black/5',
       'backdrop-blur-md',
@@ -134,21 +152,19 @@ function updateNavbarAesthetics() {
     );
     mainNavbar.classList.add('bg-transparent', 'border-transparent');
 
-    navBrandText.classList.add('text-white');
-    navBrandText.classList.remove('text-[#1b212a]', 'dark:text-white');
-
     navItemLinks.forEach(link => {
       link.classList.add('text-white', 'hover:text-sky-300');
-      link.classList.remove('text-[#1b212a]', 'dark:text-slate-200', 'hover:text-sky-600', 'dark:hover:text-sky-400');
+      link.classList.remove('text-serumpun-dark', 'dark:text-slate-200', 'hover:text-sky-600', 'dark:hover:text-sky-400');
     });
 
-    navMiscIcons.forEach(btn => {
+    navActionBtns.forEach(btn => {
       btn.classList.add('text-white', 'hover:bg-white/20');
-      btn.classList.remove('text-[#1b212a]', 'dark:text-white', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
+      btn.classList.remove('text-serumpun-dark', 'dark:text-white', 'hover:bg-slate-100', 'dark:hover:bg-slate-800');
     });
+
     if (langArrow) {
       langArrow.classList.add('text-white');
-      langArrow.classList.remove('text-[#1b212a]', 'dark:text-white');
+      langArrow.classList.remove('text-serumpun-dark', 'dark:text-white');
     }
   }
 }
