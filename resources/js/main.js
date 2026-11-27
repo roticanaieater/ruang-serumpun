@@ -47,12 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   initRiwayatNegeri();
   initSerumpunTimeline();
-  setTimeout(updateTimelineProgressBar, 120);
+  initBudayaSection();
+  setTimeout(() => {
+    updateTimelineProgressBar();
+    positionBudayaCarousel();
+  }, 120);
 });
 
 window.addEventListener('resize', () => {
   if (typeof updateTimelineProgressBar === 'function') {
     updateTimelineProgressBar();
+  }
+  if (typeof positionBudayaCarousel === 'function') {
+    positionBudayaCarousel();
   }
 });
 
@@ -111,7 +118,7 @@ const daftarRiwayatNegeri = [
     slug: "negeri-pahang",
     nama: "Pahang",
     aksara: "ڤهڠ دار المعمور",
-    gambar: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    gambar: "https://images.unsplash.com/photo-1616916492853-b127b5e50466?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     keterangan: "Negeri Pahang Darul Makmur merupakan negeri tertua di Semenanjung dengan rekod tamadun purba benang emas, pusat perlawanan Mat Kilau serta jalinan sejarah erat dengan kesultanan Riau-Lingga.",
     isEmblem: false,
     benderaUrl: "/images/flags/regions/pahang.svg",
@@ -121,7 +128,7 @@ const daftarRiwayatNegeri = [
     slug: "kesultanan-brunei",
     nama: "Brunei",
     aksara: "بروني دار السلام",
-    gambar: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1200&q=80",
+    gambar: "https://images.unsplash.com/photo-1705583855040-3c25b4a9eab9?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     keterangan: "Empayar Kesultanan Brunei di bawah Sultan Bolkiah pada zaman kegemilangannya menguasai seluruh pesisir kepulauan Borneo hingga ke kepulauan Sulu dan Manila.",
     isEmblem: false,
     benderaUrl: "/images/flags/regions/brunei.svg",
@@ -131,7 +138,7 @@ const daftarRiwayatNegeri = [
     slug: "banten",
     nama: "Banten",
     aksara: "ᮘᮔ᮪ᮒᮨᮔ᮪ ᮒᮔᮂ ᮏᮝᮛ",
-    gambar: "https://images.unsplash.com/photo-1658061927507-e135012dbe20?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    gambar: "https://images.unsplash.com/photo-1566205865731-51803de32a35?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     keterangan: "Empayar Kesultanan Brunei di bawah Sultan Bolkiah pada zaman kegemilangannya menguasai seluruh pesisir kepulauan Borneo hingga ke kepulauan Sulu dan Manila.",
     isEmblem: true,
     benderaUrl: "/images/flags/regions/Coat_of_arms_of_Banten.svg",
@@ -163,7 +170,7 @@ const daftarRiwayatNegeri = [
     gambar: "https://images.unsplash.com/photo-1711609110590-5ad5c4599e56?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     keterangan: "Empayar Kesultanan Brunei di bawah Sultan Bolkiah pada zaman kegemilangannya menguasai seluruh pesisir kepulauan Borneo hingga ke kepulauan Sulu dan Manila.",
     isEmblem: true,
-    benderaUrl: "/images/flags/regions/Coat_of_arms_of_Banten.svg",
+    benderaUrl: "/images/flags/regions/Coat_of_arms_of_Bali.svg",
     petaUrl: "/images/minimaps/bali.svg"
   },
 ];
@@ -358,7 +365,7 @@ const timelineEvents = [
     period: "Abad ke-16",
     title: "Pasang Surut Hubungan Aceh-Johor",
     summary: "Interaksi dinamis antara dua adidaya Melayu pasca-1511 yang silih berganti menjalin persekutuan keluarga dan bersaing menguasai jalur niaga Selat Melaka.",
-    iconUrl: "/images/icons/timeline/aceh-johor.svg"
+    iconUrl: "/images/icons/timeline/keris_melayu.svg"
   },
   {
     id: 5,
@@ -603,6 +610,384 @@ function updateTimelineProgressBar() {
   }
 }
 
+// ===========================================================================
+// 3. DATA & LOGIKA SECTION BUDAYA ("WARISAN KITA") - ASET SVG EKSTERNAL
+// ===========================================================================
+// Direktori Aset Eksternal Laravel (public/images/...):
+// - Pattern Tile  : /images/patterns/nusantara-tile.svg  (viewBox="0 0 140 140")
+// - Bendera Negara: /images/flags/countries/{kode}.svg    (rasio 4:3, misal indonesia.svg, malaysia.svg, brunei.svg, singapura.svg, patani.svg)
+// - Display Objek : /images/icons/culture/{slug}.svg      (ilustrasi objek budaya)
+// - Silhouette BG : /images/silhouettes/culture/{slug}.svg (viewBox="0 0 140 140")
+// - Minimap Master: /images/maps/nusantara-minimap.svg    (viewBox="0 0 1500 656", berisi <path data-region="sumatra">, dll.)
+const daftarBudayaWarisan = [
+  {
+    id: "keris",
+    slug: "keris",
+    judul: "Keris",
+    // Berpedoman pada token warna palet resmi Serumpunologi (kuning-1 & kuning-3/serumpun-yellow)
+    cardBg: "var(--color-kuning-1)",
+    accentBorder: "color-mix(in srgb, var(--color-serumpun-yellow) 32%, transparent)",
+    silhouetteColor: "var(--color-serumpun-yellow)",
+    fotoEditorial: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=800&q=85",
+    fotoAlt: "Busana Adat Nusantara dengan Keris",
+    bendera: [
+      { nama: "Malaysia", url: "/images/flags/countries/malaysia.svg" },
+      { nama: "Indonesia", url: "/images/flags/countries/indonesia.svg" },
+      { nama: "Brunei", url: "/images/flags/countries/brunei.svg" },
+      { nama: "Singapura", url: "/images/flags/countries/singapor.svg" },
+      { nama: "Patani", url: "/images/flags/countries/patani.svg" },
+    ],
+    suku: ["Bali", "Bugis", "Banjar", "Jawa", "Madura", "Melayu", "Minangkabau", "Sasak"],
+    deskripsi: "Senjata tikam berluk asimetris dengan pamor tempaan logam yang menjadi lambang kehormatan, kedaulatan, dan jati diri kesatria di seluruh dunia Melayu-Nusantara sejak era klasik.",
+    displayUrl: "/images/icons/culture/keris.svg",
+    silhouetteUrl: "/images/icons/history/keris_melayu.svg",
+    wilayahMenyala: ["semenanjung", "sumatra", "jawa", "nusa-tenggara", "borneo", "sulawesi"],
+    wilayahKeterangan: "Semenanjung, Sumatra, Jawa, Nusa Tenggara, Borneo & Sulawesi"
+  },
+  {
+    id: "songket",
+    slug: "songket",
+    judul: "Songket",
+    // Berpedoman pada token warna palet resmi Serumpunologi (hijau-1 & hijau-4)
+    cardBg: "var(--color-hijau-1)",
+    accentBorder: "color-mix(in srgb, var(--color-hijau-4) 35%, transparent)",
+    silhouetteColor: "var(--color-hijau-4)",
+    fotoEditorial: "/images/editorial/songket-melayu.jpg",
+    fotoAlt: "Kain Tenun Songket Benang Emas",
+    bendera: [
+      { nama: "Malaysia", url: "/images/flags/countries/malaysia.svg" },
+      { nama: "Indonesia", url: "/images/flags/countries/indonesia.svg" },
+      { nama: "Brunei", url: "/images/flags/countries/brunei.svg" },
+      { nama: "Singapura", url: "/images/flags/countries/singapor.svg" },
+      { nama: "Patani", url: "/images/flags/countries/patani.svg" },
+    ],
+    suku: ["Melayu", "Minangkabau", "Aceh", "Palembang", "Sasak"],
+    deskripsi: "Kain tenun mewah warisan istana pesisir yang ditenun menggunakan benang emas dan perak dengan ragam hias pucuk rebung, bunga tanjung, serta tampuk manggis.",
+    displayUrl: "/images/icons/culture/songket.svg",
+    silhouetteUrl: "/images/icons/history/songket.svg",
+    wilayahMenyala: ["semenanjung", "sumatra", "borneo"],
+    wilayahKeterangan: "Semenanjung Melayu, Sumatra & Borneo"
+  },
+  {
+    id: "wayang-kulit",
+    slug: "wayang-kulit",
+    judul: "Wayang Kulit",
+    // Berpedoman pada token warna palet resmi Serumpunologi (biru-1 & biru-5)
+    cardBg: "var(--color-biru-1)",
+    accentBorder: "color-mix(in srgb, var(--color-biru-5) 35%, transparent)",
+    silhouetteColor: "var(--color-biru-5)",
+    fotoEditorial: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Bercerita_dengan_Wayang.jpg/960px-Bercerita_dengan_Wayang.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20180928034919",
+    fotoAlt: "Pertunjukan Bayang Wayang Kulit Nusantara",
+    bendera: [
+      { nama: "Indonesia", url: "/images/flags/countries/indonesia.svg" },
+      { nama: "Malaysia", url: "/images/flags/countries/malaysia.svg" },
+      { nama: "Singapura", url: "/images/flags/countries/patani.svg" }
+    ],
+    suku: ["Jawa", "Sunda", "Bali", "Melayu Kelantan", "Banjar"],
+    deskripsi: "Seni teater bayang-bayang bernilai falsafah tinggi yang memadukan seni tatahan kulit, gamelan, dan hikayat kepahlawanan dari Jawa, Bali, hingga pesisir Kelantan.",
+    displayUrl: "/images/icons/culture/wayang-kulit.svg",
+    silhouetteUrl: "/images/silhouettes/culture/wayang-kulit.svg",
+    wilayahMenyala: ["jawa", "sumatra", "semenanjung", "borneo", "nusa-tenggara"],
+    wilayahKeterangan: "Jawa, Bali, Kalimantan, Semenanjung Melayu"
+  },
+];
+
+let activeBudayaIndex = 0;
+
+/**
+ * Normalisasi nama wilayah agar toleran terhadap penulisan spasi/huruf besar
+ * Misal: "Nusa Tenggara" atau "nusa_tenggara" -> "nusa-tenggara"
+ */
+function normalizeRegionKey(rawKey) {
+  return (rawKey || '')
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_]+/g, '-');
+}
+
+/**
+ * Memuat 1 file SVG minimap eksternal (/images/maps/nusantara-minimap.svg)
+ * lalu menyalakan (opacity 1) atau meredupkan (opacity 0.25) tiap wilayah
+ * berdasarkan daftar `activeRegions` milik masing-masing kartu.
+ */
+async function injectBudayaMinimapSvg(containerEl, url, activeRegions = []) {
+  if (!containerEl || !url) return;
+
+  const normalizedActive = activeRegions.map(normalizeRegionKey);
+
+  try {
+    // 1. Fetch hanya terjadi 1x, berikutnya diambil dari memori cache
+    let svgText = svgFileCache.get(url);
+    if (!svgText) {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Gagal memuat minimap: ${url}`);
+      svgText = await response.text();
+      svgFileCache.set(url, svgText);
+    }
+
+    containerEl.innerHTML = svgText;
+    const svgEl = containerEl.querySelector('svg');
+    if (svgEl) {
+      svgEl.removeAttribute('width');
+      svgEl.removeAttribute('height');
+      svgEl.setAttribute('class', 'w-full h-auto max-w-[300px] sm:max-w-[330px] drop-shadow-md select-none text-white');
+
+      // 2. Cari semua <path> atau <g> wilayah yang memiliki id / data-region
+      const regionNodes = svgEl.querySelectorAll('[data-region], path[id], g[id]');
+      regionNodes.forEach((node) => {
+        const rawId = node.getAttribute('data-region') || node.id || '';
+        const key = normalizeRegionKey(rawId);
+
+        // Abaikan wrapper bawaan Illustrator/Figma seperti "layer-1" atau "svg"
+        if (!key || key.startsWith('layer-') || key === 'svg') return;
+
+        // Pindahkan id ke data-region & hapus id agar tidak duplikat antarkartu
+        node.setAttribute('data-region', key);
+        node.removeAttribute('id');
+
+        const isLit = normalizedActive.includes(key);
+
+        // Paksa warna putih (currentColor) menimpa warna gelap bawaan file SVG
+        node.style.fill = 'currentColor';
+        node.style.opacity = isLit ? '1' : '0.25';
+        node.style.transition = 'opacity 0.35s ease';
+
+        // Jika satu wilayah dibungkus dalam <g>, terapkan juga ke semua <path> di dalamnya
+        node.querySelectorAll('path').forEach((childPath) => {
+          childPath.style.fill = 'currentColor';
+        });
+      });
+    }
+  } catch (err) {
+    containerEl.innerHTML = `
+      <div class="w-full h-24 rounded-xl border border-dashed border-white/30 flex items-center justify-center text-white/50 text-[10px] font-mono">
+        Minimap Nusantara
+      </div>
+    `;
+  }
+}
+
+function initBudayaSection() {
+  const sectionEl = document.getElementById('budaya');
+  const tileLayer = document.getElementById('budayaTileLayer');
+  const track = document.getElementById('budaya-carousel-track');
+
+  if (!sectionEl || !track) return;
+
+  // 1. Terapkan URL pattern SVG eksternal dari atribut data-pattern-url pada Blade
+  const patternUrl = sectionEl.dataset.patternUrl || '/images/patterns/nusantara-tile.svg';
+  if (tileLayer && patternUrl) {
+    tileLayer.style.webkitMaskImage = `url("${patternUrl}")`;
+    tileLayer.style.maskImage = `url("${patternUrl}")`;
+  }
+
+  // 2. Render Kartu-kartu Budaya ke dalam Carousel Track
+  const minimapUrl = sectionEl.dataset.minimapUrl || '/images/minimaps/nusantara-minimap.svg';
+
+  track.innerHTML = daftarBudayaWarisan.map((item, idx) => {
+    const isActive = idx === activeBudayaIndex;
+
+    const flagsHtml = item.bendera.map((b) => `
+      <img
+        src="${b.url}"
+        alt="Bendera ${b.nama}"
+        title="${b.nama}"
+        loading="lazy"
+        class="w-10 h-[30px] object-fill rounded-[3px] shadow-sm border border-white/25 shrink-0 bg-serumpun-dark/40"
+      >
+    `).join('');
+
+    const sukuBadgesHtml = item.suku.map((s) => `
+      <span class="px-2.5 py-1 rounded-md bg-white text-serumpun-dark font-extrabold text-[11px] sm:text-xs shadow-xs tracking-tight">
+        ${s}
+      </span>
+    `).join('');
+
+    return `
+      <article
+        id="budaya-card-${idx}"
+        data-active="${isActive}"
+        onclick="handleBudayaCardClick(event, ${idx})"
+        style="background-color: ${item.cardBg}; border-color: ${item.accentBorder};"
+        class="budaya-slide-card relative w-[88vw] sm:w-[82vw] md:w-[78vw] max-w-[1060px] rounded-[26px] sm:rounded-[32px] overflow-hidden border shadow-2xl text-white grid grid-cols-1 lg:grid-cols-12 min-h-[410px] lg:min-h-[445px]"
+      >
+        <!-- Background Silhouette SVG Eksternal Terpotong di Pojok Kiri-Bawah Kartu -->
+        <div
+          id="budaya-silhouette-${idx}"
+          style="color: ${item.silhouetteColor};"
+          class="pointer-events-none select-none absolute left-0 lg:left-[22%] -bottom-10 w-64 h-64 sm:w-80 sm:h-80 opacity-[0.11] z-0"
+          aria-hidden="true"
+        ></div>
+
+        <!-- BAGIAN PALING KIRI (3 Kolom): Gambar Editorial Vertikal Full-Height -->
+        <div class="relative lg:col-span-3 h-52 sm:h-64 lg:h-auto overflow-hidden bg-serumpun-dark/50 z-10">
+          <img
+            src="${item.fotoEditorial}"
+            alt="${item.fotoAlt}"
+            class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+          >
+          <div class="hidden lg:block absolute inset-y-0 right-0 w-10" style="background: linear-gradient(90deg, transparent, ${item.cardBg});"></div>
+          <div class="lg:hidden absolute inset-x-0 bottom-0 h-12" style="background: linear-gradient(180deg, transparent, ${item.cardBg});"></div>
+        </div>
+
+        <!-- BAGIAN TENGAH (5 Kolom): Bendera, Judul, Tag Suku, Deskripsi & Tombol Baca -->
+        <div class="relative lg:col-span-5 p-6 sm:p-8 lg:py-9 lg:px-7 flex flex-col justify-between z-10">
+          <div>
+            <!-- Deretan Bendera Negara/Wilayah Pelestari -->
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+              ${flagsHtml}
+            </div>
+
+            <!-- Judul Objek Budaya -->
+            <h3 class="font-sans font-black text-3xl sm:text-4xl lg:text-[44px] tracking-tight text-white leading-none">
+              ${item.judul}
+            </h3>
+
+            <!-- Kategori Suku Bangsa Pemilik / Pelestari -->
+            <div class="mt-4 flex flex-wrap items-center gap-1.5 sm:gap-2">
+              ${sukuBadgesHtml}
+            </div>
+
+            <!-- Deskripsi Objek Budaya -->
+            <p class="mt-4 text-xs sm:text-[13.5px] text-white/90 leading-relaxed font-normal">
+              ${item.deskripsi}
+            </p>
+          </div>
+
+          <!-- Tombol Baca Selengkapnya -->
+          <div class="mt-6 pt-1">
+            <a
+              href="/budaya/${item.slug}"
+              class="group/bcta inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-serumpun-yellow text-serumpun-dark font-extrabold text-xs sm:text-[13px] tracking-wide shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+            >
+              <span>Baca selengkapnya</span>
+              <i class="fa-solid fa-arrow-right text-[11px] transition-transform duration-200 group-hover/bcta:translate-x-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- BAGIAN KANAN (4 Kolom, Terbagi Atas & Bawah): Display Objek + Minimap 2-Layer -->
+        <div class="relative lg:col-span-4 px-6 pb-6 pt-2 lg:p-7 flex flex-col items-center justify-between gap-4 border-t lg:border-t-0 lg:border-l border-white/10 z-10">
+          <!-- Kanan Atas: Display Ilustrasi Objek Budaya (SVG Eksternal) -->
+          <div
+            id="budaya-display-${idx}"
+            class="flex-1 w-full flex items-center justify-center pt-1 text-white"
+          ></div>
+
+          <!-- Kanan Bawah: Minimap Nusantara SVG Eksternal (Layer Menyala & Redup) -->
+          <div class="w-full flex flex-col items-center">
+            <div id="budaya-minimap-${idx}" class="w-full flex justify-center"></div>
+            <p class="mt-1.5 text-[10px] sm:text-[11px] text-white/70 text-center font-medium tracking-wide">
+              Persebaran: <span class="text-white font-semibold">${item.wilayahKeterangan}</span>
+            </p>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  // 3. Suntikkan aset SVG eksternal ke masing-masing wadah kartu
+  daftarBudayaWarisan.forEach((item, idx) => {
+    const silBox = document.getElementById(`budaya-silhouette-${idx}`);
+    const dispBox = document.getElementById(`budaya-display-${idx}`);
+    const mapBox = document.getElementById(`budaya-minimap-${idx}`);
+
+    injectExternalSvg(silBox, item.silhouetteUrl, 'w-full h-full');
+    injectExternalSvg(dispBox, item.displayUrl, 'w-44 h-40 sm:w-52 sm:h-44 drop-shadow-[0_14px_22px_rgba(0,0,0,0.45)]');
+    injectBudayaMinimapSvg(mapBox, minimapUrl, item.wilayahMenyala);
+  });
+
+  renderBudayaDots();
+  initBudayaGestures();
+  positionBudayaCarousel();
+}
+
+function renderBudayaDots() {
+  const dotsContainer = document.getElementById('budaya-dots-container');
+  if (!dotsContainer) return;
+
+  dotsContainer.innerHTML = daftarBudayaWarisan.map((item, idx) => {
+    const isActive = idx === activeBudayaIndex;
+    return `
+      <button
+        type="button"
+        onclick="goToBudayaCard(${idx})"
+        aria-label="Lihat warisan budaya ${item.judul}"
+        class="h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+          isActive ? 'w-8 bg-serumpun-dark dark:bg-serumpun-yellow' : 'w-2.5 bg-kelabu-4 dark:bg-kelabu-2 hover:bg-kelabu-3'
+        }"
+      ></button>
+    `;
+  }).join('') + `
+    <span class="ml-1.5 pl-2.5 border-l border-kelabu-4/60 dark:border-kelabu-2/60 text-[11px] font-mono font-bold text-kelabu-2 dark:text-kelabu-4">
+      ${String(activeBudayaIndex + 1).padStart(2, '0')} / ${String(daftarBudayaWarisan.length).padStart(2, '0')}
+    </span>
+  `;
+}
+
+function positionBudayaCarousel() {
+  const viewport = document.getElementById('budaya-carousel-viewport');
+  const track = document.getElementById('budaya-carousel-track');
+  const activeCard = document.getElementById(`budaya-card-${activeBudayaIndex}`);
+  if (!viewport || !track || !activeCard) return;
+
+  const viewportWidth = viewport.offsetWidth;
+  const cardWidth = activeCard.offsetWidth;
+  const cardOffsetLeft = activeCard.offsetLeft;
+
+  const translateX = (viewportWidth / 2) - (cardOffsetLeft + cardWidth / 2);
+  track.style.transform = `translate3d(${translateX}px, 0, 0)`;
+}
+
+function goToBudayaCard(index) {
+  const total = daftarBudayaWarisan.length;
+  activeBudayaIndex = (index + total) % total;
+
+  daftarBudayaWarisan.forEach((_, idx) => {
+    const card = document.getElementById(`budaya-card-${idx}`);
+    if (card) card.dataset.active = (idx === activeBudayaIndex) ? 'true' : 'false';
+  });
+
+  renderBudayaDots();
+  positionBudayaCarousel();
+}
+
+function nextBudayaCard() {
+  goToBudayaCard(activeBudayaIndex + 1);
+}
+
+function prevBudayaCard() {
+  goToBudayaCard(activeBudayaIndex - 1);
+}
+
+function handleBudayaCardClick(event, idx) {
+  if (idx !== activeBudayaIndex) {
+    event.preventDefault();
+    goToBudayaCard(idx);
+  }
+}
+
+function initBudayaGestures() {
+  const viewport = document.getElementById('budaya-carousel-viewport');
+  if (!viewport || viewport.dataset.gesturesBound === 'true') return;
+  viewport.dataset.gesturesBound = 'true';
+
+  let touchStartX = 0;
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 45) {
+      if (diff > 0) nextBudayaCard();
+      else prevBudayaCard();
+    }
+  }, { passive: true });
+}
+
 // Ekspos fungsi global agar bisa dipanggil oleh event onclick di Blade
 window.jumpToRiwayatNegeri = jumpToRiwayatNegeri;
 window.pauseRiwayatRotation = pauseRiwayatRotation;
@@ -610,3 +995,8 @@ window.resumeRiwayatRotation = resumeRiwayatRotation;
 window.initRiwayatNegeri = initRiwayatNegeri;
 window.selectTimelineNode = selectTimelineNode;
 window.initSerumpunTimeline = initSerumpunTimeline;
+window.initBudayaSection = initBudayaSection;
+window.goToBudayaCard = goToBudayaCard;
+window.nextBudayaCard = nextBudayaCard;
+window.prevBudayaCard = prevBudayaCard;
+window.handleBudayaCardClick = handleBudayaCardClick;

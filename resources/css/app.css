@@ -197,161 +197,280 @@
 }
 
 /* =========================================================================
-HISTORICAL EDITORIAL & TIMELINE STYLES (SERUMPUN)
+HISTORICAL EDITORIAL & TIMELINE STYLES (SERUMPUN PALETTE)
 ========================================================================= */
 
-/* Sembunyikan scrollbar horizontal pada viewport timeline */
 .no-scrollbar::-webkit-scrollbar {
-display: none;
+  display: none;
 }
+
 .no-scrollbar {
--ms-overflow-style: none;
-scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Tekstur kertas arsip halus */
+/* Tekstur kertas arsip halus memakai variabel serumpun-dark & kelabu-5 */
 .archival-paper-grain {
-background-image: radial-gradient(rgba(27, 33, 42, 0.065) 1px, transparent 0);
-background-size: 22px 22px;
+  background-image: radial-gradient(color-mix(in srgb, var(--color-serumpun-dark) 7%, transparent) 1px, transparent 0);
+  background-size: 22px 22px;
 }
+
 .dark .archival-paper-grain {
-background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0);
+  background-image: radial-gradient(color-mix(in srgb, var(--color-kelabu-5) 4%, transparent) 1px, transparent 0);
 }
 
-/* Kartu Artikel Sejarah: Hover dengan Outline Aksen Emas Editorial */
+/* Kartu Artikel Sejarah: Hover memakai kuning-3 & serumpun-yellow */
 .sejarah-article-card {
-transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-border-color 0.35s ease,
-box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.sejarah-article-card:hover {
-transform: translateY(-5px);
-border-color: #C8A94E;
-box-shadow: 0 18px 36px -12px rgba(27, 33, 42, 0.14), 0 0 0 1px rgba(200, 169, 78, 0.45);
-}
-.dark .sejarah-article-card:hover {
-border-color: #facc15;
-box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(250, 204, 21, 0.4);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Gradasi transisi foto ke solid #1b212a (Light Mode) & #EAD180 (Dark Mode) */
-.riwayat-photo-gradient {
-background: linear-gradient(
-180deg,
-rgba(27, 33, 42, 0.08) 0%,
-rgba(27, 33, 42, 0.35) 48%,
-rgba(27, 33, 42, 0.90) 80%,
-#1b212a 100%
-);
+.sejarah-article-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-kuning-3);
+  box-shadow: 0 18px 36px -12px color-mix(in srgb, var(--color-serumpun-dark) 16%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-kuning-3) 45%, transparent);
 }
+
+.dark .sejarah-article-card:hover {
+  border-color: var(--color-serumpun-yellow);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.55),
+    0 0 0 1px color-mix(in srgb, var(--color-serumpun-yellow) 45%, transparent);
+}
+
+/* Gradasi transisi foto ke solid serumpun-dark (Light) & serumpun-yellow (Dark) */
+.riwayat-photo-gradient {
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--color-serumpun-dark) 8%, transparent) 0%,
+      color-mix(in srgb, var(--color-serumpun-dark) 38%, transparent) 48%,
+      color-mix(in srgb, var(--color-serumpun-dark) 92%, transparent) 80%,
+      var(--color-serumpun-dark) 100%);
+}
+
 .dark .riwayat-photo-gradient {
-background: linear-gradient(
-180deg,
-rgba(234, 209, 128, 0.05) 0%,
-rgba(234, 209, 128, 0.32) 48%,
-rgba(234, 209, 128, 0.90) 80%,
-#EAD180 100%
-);
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--color-serumpun-yellow) 5%, transparent) 0%,
+      color-mix(in srgb, var(--color-serumpun-yellow) 35%, transparent) 48%,
+      color-mix(in srgb, var(--color-serumpun-yellow) 92%, transparent) 80%,
+      var(--color-serumpun-yellow) 100%);
 }
 
 /* Animasi Ken Burns halus pada foto Riwayat Negeri */
 @keyframes kenBurnsSubtle {
-0% { transform: scale(1.0); }
-100% { transform: scale(1.06); }
+  0% {
+    transform: scale(1.0);
+  }
+
+  100% {
+    transform: scale(1.06);
+  }
 }
+
 .riwayat-img-animate {
-animation: kenBurnsSubtle 6.2s ease-out forwards;
+  animation: kenBurnsSubtle 6.2s ease-out forwards;
 }
 
 /* Progress bar rotasi otomatis Riwayat Negeri */
 @keyframes riwayatProgressFill {
-0% { width: 0%; }
-100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
+
 .riwayat-progress-running {
-animation: riwayatProgressFill 6000ms linear forwards;
+  animation: riwayatProgressFill 6000ms linear forwards;
 }
+
 .riwayat-progress-paused {
-animation-play-state: paused !important;
+  animation-play-state: paused !important;
 }
 
 /* =========================================================================
-ANIMASI TIMELINE INTERAKTIF (SMOOTH SPRING & ACCORDION)
+ANIMASI TIMELINE INTERAKTIF (MENGGUNAKAN TOKEN WARNA SERUMPUN)
 ========================================================================= */
 .tl-icon-wrapper {
-transform-origin: bottom center;
-transition: transform 0.52s cubic-bezier(0.34, 1.56, 0.64, 1),
-opacity 0.35s ease,
-color 0.35s ease,
-filter 0.4s ease;
+  transform-origin: bottom center;
+  transition: transform 0.52s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.35s ease,
+    color 0.35s ease,
+    filter 0.4s ease;
 }
+
 .tl-node[data-active="false"] .tl-icon-wrapper {
-transform: scale(0.58) translateY(6px);
-opacity: 0.55;
+  transform: scale(0.58) translateY(6px);
+  opacity: 0.55;
 }
+
 .tl-node[data-active="false"]:hover .tl-icon-wrapper {
-transform: scale(0.75) translateY(2px);
-opacity: 0.9;
+  transform: scale(0.75) translateY(2px);
+  opacity: 0.9;
 }
+
 .tl-node[data-active="true"] .tl-icon-wrapper {
-transform: scale(1.18) translateY(-4px);
-opacity: 1;
-color: #A68632;
-filter: drop-shadow(0 8px 16px rgba(200, 169, 78, 0.32));
+  transform: scale(1.18) translateY(-4px);
+  opacity: 1;
+  color: var(--color-kuning-2);
+  filter: drop-shadow(0 8px 16px color-mix(in srgb, var(--color-kuning-3) 35%, transparent));
 }
+
 .dark .tl-node[data-active="true"] .tl-icon-wrapper {
-color: #facc15;
-filter: drop-shadow(0 8px 18px rgba(250, 204, 21, 0.28));
+  color: var(--color-serumpun-yellow);
+  filter: drop-shadow(0 8px 18px color-mix(in srgb, var(--color-serumpun-yellow) 30%, transparent));
 }
 
 /* Titik simpul bulat pada garis waktu */
 .tl-dot {
-transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-background-color 0.3s ease,
-box-shadow 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.3s ease,
+    box-shadow 0.35s ease;
 }
+
 .tl-node[data-active="true"] .tl-dot {
-transform: scale(1.32);
-background-color: #C8A94E;
-box-shadow: 0 0 0 5px rgba(200, 169, 78, 0.28), 0 0 0 2px #FCFBF7;
+  transform: scale(1.32);
+  background-color: var(--color-kuning-3);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-kuning-3) 28%, transparent), 0 0 0 2px #ffffff;
 }
+
 .dark .tl-node[data-active="true"] .tl-dot {
-background-color: #facc15;
-box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.25), 0 0 0 2px #12161c;
+  background-color: var(--color-serumpun-yellow);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-serumpun-yellow) 25%, transparent), 0 0 0 2px var(--color-serumpun-dark);
 }
 
 /* Accordion panel ringkasan */
 .tl-accordion-grid {
-display: grid;
-grid-template-rows: 0fr;
-opacity: 0;
-transform: translateY(-6px);
-transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-opacity 0.35s ease,
-transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .tl-node[data-active="true"] .tl-accordion-grid {
-grid-template-rows: 1fr;
-opacity: 1;
-transform: translateY(0);
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
 }
+
 .tl-accordion-inner {
+  overflow: hidden;
+}
+
+/* Permukaan kartu timeline aktif: serumpun-dark (Light) & putih bersih (Dark) */
+.tl-card-surface {
+  transition: background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+}
+
+.tl-node[data-active="true"] .tl-card-surface {
+  background-color: var(--color-serumpun-dark);
+  border-color: color-mix(in srgb, var(--color-kuning-3) 55%, transparent);
+  box-shadow: 0 20px 36px -12px color-mix(in srgb, var(--color-serumpun-dark) 30%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-kuning-3) 25%, transparent);
+}
+
+.dark .tl-node[data-active="true"] .tl-card-surface {
+  background-color: #ffffff;
+  border-color: color-mix(in srgb, var(--color-serumpun-yellow) 70%, transparent);
+  box-shadow: 0 20px 38px -12px rgba(0, 0, 0, 0.55),
+    0 0 0 1px color-mix(in srgb, var(--color-serumpun-yellow) 35%, transparent);
+}
+
+/* =========================================================================
+SECTION BUDAYA ("WARISAN KITA") - ANIMATED PATTERN & PEEK CAROUSEL
+========================================================================= */
+:root {
+--budaya-pattern-bg: var(--color-kelabu-5);
+--budaya-pattern-fg: var(--color-kelabu-4);
+--budaya-tile-width: 140px;
+--budaya-tile-height: 140px;
+--budaya-anim-duration: 14s;
+}
+
+html.dark {
+--budaya-pattern-bg: var(--color-serumpun-dark);
+--budaya-pattern-fg: var(--color-serumpun-middark);
+}
+
+.budaya-pattern-section {
+position: relative;
+background-color: var(--budaya-pattern-bg);
+transition: background-color 0.4s ease;
 overflow: hidden;
 }
 
-/* Permukaan kartu timeline aktif (Gelap di Light Mode | Ivory di Dark Mode) */
-.tl-card-surface {
-transition: background-color 0.35s ease,
-border-color 0.35s ease,
-box-shadow 0.4s ease;
+.budaya-pattern-layer {
+position: absolute;
+inset: 0;
+pointer-events: none;
+background-color: var(--budaya-pattern-fg);
+opacity: 0.45;
+transition: background-color 0.4s ease, opacity 0.4s ease;
+-webkit-mask-repeat: repeat;
+mask-repeat: repeat;
+-webkit-mask-size: var(--budaya-tile-width) var(--budaya-tile-height);
+mask-size: var(--budaya-tile-width) var(--budaya-tile-height);
+animation: slideBudayaTileRight var(--budaya-anim-duration) linear infinite;
 }
-.tl-node[data-active="true"] .tl-card-surface {
-background-color: #1b212a;
-border-color: rgba(200, 169, 78, 0.55);
-box-shadow: 0 20px 36px -12px rgba(27, 33, 42, 0.28), 0 0 0 1px rgba(200, 169, 78, 0.25);
+
+html.dark .budaya-pattern-layer {
+opacity: 0.65;
 }
-.dark .tl-node[data-active="true"] .tl-card-surface {
-background-color: #FCFBF7;
-border-color: rgba(200, 169, 78, 0.7);
-box-shadow: 0 20px 38px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(250, 204, 21, 0.3);
+
+@media (prefers-reduced-motion: reduce) {
+.budaya-pattern-layer {
+animation: none;
+}
+}
+
+@keyframes slideBudayaTileRight {
+from {
+-webkit-mask-position: 0px 0px;
+mask-position: 0px 0px;
+}
+to {
+-webkit-mask-position: var(--budaya-tile-width) 0px;
+mask-position: var(--budaya-tile-width) 0px;
+}
+}
+
+/* Track & Slide Horizontal Peek Carousel Budaya */
+#budaya-carousel-track {
+display: flex;
+align-items: stretch;
+transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+will-change: transform;
+}
+
+.budaya-slide-card {
+flex-shrink: 0;
+transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+opacity 0.45s ease,
+filter 0.45s ease,
+box-shadow 0.45s ease;
+}
+
+.budaya-slide-card[data-active="false"] {
+transform: scale(0.95);
+opacity: 0.62;
+filter: brightness(0.82);
+cursor: pointer;
+}
+
+.budaya-slide-card[data-active="false"]:hover {
+opacity: 0.85;
+filter: brightness(0.94);
+}
+
+.budaya-slide-card[data-active="true"] {
+transform: scale(1);
+opacity: 1;
+filter: brightness(1);
 }
