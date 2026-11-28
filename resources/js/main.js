@@ -619,6 +619,22 @@ function updateTimelineProgressBar() {
 // - Display Objek : /images/icons/culture/{slug}.svg      (ilustrasi objek budaya)
 // - Silhouette BG : /images/silhouettes/culture/{slug}.svg (viewBox="0 0 140 140")
 // - Minimap Master: /images/maps/nusantara-minimap.svg    (viewBox="0 0 1500 656", berisi <path data-region="sumatra">, dll.)
+const budayaPatternSymbols = [
+  "/images/symbols/nias.svg",
+  "/images/symbols/aceh.svg",
+  "/images/symbols/iban.svg",
+  "/images/symbols/osing.svg",
+  "/images/symbols/sunda.svg",
+  "/images/symbols/batak.svg",
+  "/images/symbols/lampung.svg",
+  "/images/symbols/makassar.svg",
+  "/images/symbols/bone.svg",
+  "/images/symbols/sentani.svg",
+  "/images/symbols/minang.svg",
+  "/images/symbols/keris_melayu.svg",
+  "/images/symbols/bali.svg"
+];
+
 const daftarBudayaWarisan = [
   {
     id: "keris",
@@ -693,6 +709,94 @@ const daftarBudayaWarisan = [
 ];
 
 let activeBudayaIndex = 0;
+
+/**
+ * Mengambil seluruh file simbol 140x140 di /images/symbols/, menormalisasi warnanya
+ * menjadi solid hitam agar terbaca CSS Mask, lalu merangkainya menjadi ubin
+ * selang-seling 2 baris (staggered brick pattern) yang seamless saat bergerak.
+ */
+async function buildMultiSymbolPatternMask(tileLayer, symbolUrls = []) {
+  if (!tileLayer || !symbolUrls.length) return;
+
+  const parser = new DOMParser();
+  const loadedInners = [];
+
+  await Promise.all(
+    symbolUrls.map(async (url) => {
+      try {
+        let svgText = svgFileCache.get(url);
+        if (!svgText) {
+          const res = await fetch(url);
+          if (!res.ok) return;
+          svgText = await res.text();
+          svgFileCache.set(url, svgText);
+        }
+
+        const doc = parser.parseFromString(svgText, 'image/svg+xml');
+        const svgEl = doc.querySelector('svg');
+        if (!svgEl) return;
+
+        svgEl.querySelectorAll('path, rect, circle, ellipse, polygon, polyline').forEach((shape) => {
+          const fillAttr = shape.getAttribute('fill');
+          const strokeAttr = shape.getAttribute('stroke');
+          if (fillAttr !== 'none') shape.setAttribute('fill', '#000000');
+          if (strokeAttr && strokeAttr !== 'none') shape.setAttribute('stroke', '#000000');
+        });
+
+        loadedInners.push(svgEl.innerHTML);
+      } catch (_) {
+        // Lewati jika file belum tersedia
+      }
+    })
+  );
+
+  if (!loadedInners.length) return;
+
+  const cellSize = 120;
+  const iconScale = 0.62;
+  const iconOffset = (cellSize * (1 - iconScale)) / 2;
+  const cols = loadedInners.length;
+  const totalWidth = cols * cellSize;
+  const totalHeight = cellSize * 2;
+
+  const tilesMarkup = [];
+
+  for (let col = 0; col < cols; col++) {
+    const x1 = col * cellSize + iconOffset;
+    const y1 = iconOffset;
+    tilesMarkup.push(
+      `<g transform="translate(${x1.toFixed(1)}, ${y1.toFixed(1)}) scale(${iconScale})">${loadedInners[col]}</g>`
+    );
+
+    const shiftedIdx = (col + Math.floor(cols / 2)) % cols;
+    const rawX2 = col * cellSize + cellSize / 2 + iconOffset;
+    const y2 = cellSize + iconOffset;
+
+    tilesMarkup.push(
+      `<g transform="translate(${rawX2.toFixed(1)}, ${y2.toFixed(1)}) scale(${iconScale})">${loadedInners[shiftedIdx]}</g>`
+    );
+
+    if (col === cols - 1) {
+      const wrapX2 = rawX2 - totalWidth;
+      tilesMarkup.push(
+        `<g transform="translate(${wrapX2.toFixed(1)}, ${y2.toFixed(1)}) scale(${iconScale})">${loadedInners[shiftedIdx]}</g>`
+      );
+    }
+  }
+
+  const compositeSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${totalHeight}" viewBox="0 0 ${totalWidth} ${totalHeight}">${tilesMarkup.join('')}</svg>`;
+  const encodedSvg = encodeURIComponent(compositeSvg)
+    .replace(/'/g, '%27')
+    .replace(/"/g, '%22');
+
+  document.documentElement.style.setProperty('--budaya-tile-width', `${totalWidth}px`);
+  document.documentElement.style.setProperty('--budaya-tile-height', `${totalHeight}px`);
+  document.documentElement.style.setProperty('--budaya-anim-duration', `${cols * 6}s`);
+
+  const maskUrl = `url("data:image/svg+xml,${encodedSvg}")`;
+  tileLayer.style.webkitMaskImage = maskUrl;
+  tileLayer.style.maskImage = maskUrl;
+}
 
 /**
  * Normalisasi nama wilayah agar toleran terhadap penulisan spasi/huruf besar
@@ -775,16 +879,14 @@ function initBudayaSection() {
 
   if (!sectionEl || !track) return;
 
-  // 1. Terapkan URL pattern SVG eksternal dari atribut data-pattern-url pada Blade
-  const patternUrl = sectionEl.dataset.patternUrl || '/images/patterns/nusantara-tile.svg';
-  if (tileLayer && patternUrl) {
-    tileLayer.style.webkitMaskImage = `url("${patternUrl}")`;
-    tileLayer.style.maskImage = `url("${patternUrl}")`;
+  // 1. Panggil fungsi pembangun pola multi-simbol dari /images/symbols/
+  if (tileLayer) {
+    buildMultiSymbolPatternMask(tileLayer, budayaPatternSymbols);
   }
 
   // 2. Render Kartu-kartu Budaya ke dalam Carousel Track
   const minimapUrl = sectionEl.dataset.minimapUrl || '/images/minimaps/nusantara-minimap.svg';
-
+  
   track.innerHTML = daftarBudayaWarisan.map((item, idx) => {
     const isActive = idx === activeBudayaIndex;
 

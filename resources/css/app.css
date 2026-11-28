@@ -411,7 +411,7 @@ position: absolute;
 inset: 0;
 pointer-events: none;
 background-color: var(--budaya-pattern-fg);
-opacity: 0.45;
+opacity: 0.2;
 transition: background-color 0.4s ease, opacity 0.4s ease;
 -webkit-mask-repeat: repeat;
 mask-repeat: repeat;
@@ -421,7 +421,7 @@ animation: slideBudayaTileRight var(--budaya-anim-duration) linear infinite;
 }
 
 html.dark .budaya-pattern-layer {
-opacity: 0.65;
+opacity: 0.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -467,6 +467,25 @@ cursor: pointer;
 .budaya-slide-card[data-active="false"]:hover {
 opacity: 0.85;
 filter: brightness(0.94);
+}
+
+.budaya-slide-card[data-active="true"] {
+transform: scale(1);
+opacity: 1;
+filter: brightness(1);
+}
+
+:root {
+--budaya-pattern-bg: var(--color-kelabu-5);
+--budaya-pattern-fg: var(--color-kelabu-4);
+--budaya-tile-width: 1960px;
+--budaya-tile-height: 280px;
+--budaya-anim-duration: 84s;
+}
+
+html.dark {
+--budaya-pattern-bg: var(--color-serumpun-dark);
+--budaya-pattern-fg: var(--color-serumpun-middark);
 }
 
 .budaya-slide-card[data-active="true"] {

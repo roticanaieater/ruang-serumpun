@@ -1,5 +1,4 @@
 <section id="budaya"
-    data-pattern-url="{{ asset('images/patterns/nusantara-tile.svg') }}"
     data-minimap-url="{{ asset('images/minimaps/nusantara-minimap.svg') }}"
     class="budaya-pattern-section relative w-full min-h-[90vh] py-16 lg:py-20 flex flex-col justify-center border-t border-b border-kelabu-4/50 dark:border-serumpun-middark scroll-mt-0">
 
